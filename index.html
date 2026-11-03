@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex – Pokémon dos anos 90 e 2000</title>
+  <meta name="description" content="Pokédex com os Pokémon carregados em tempo real da PokeAPI.">
+
+  <!-- Fontes: Press Start 2P lembra a tela do Game Boy; Nunito para o texto corrido -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <a class="logo" href="#inicio">
+      <span class="pokebola pokebola-pequena" aria-hidden="true"></span>
+      Pokédex
+    </a>
+    <nav class="menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#pokemon">Pokémon</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Apresentação -->
+    <section class="hero" id="inicio">
+      <div class="hero-texto">
+        <p class="hero-chamada">Temos que pegar!</p>
+        <h1>A Pokédex dos anos 90 e 2000</h1>
+        <p>
+          Do Pikachu de 1996 aos lendários de Sinnoh: cada card abaixo é montado
+          em tempo real com dados da <strong>PokeAPI</strong>.
+        </p>
+        <a class="botao" href="#pokemon">Abrir a Pokédex</a>
+      </div>
+      <div class="pokebola pokebola-grande" aria-hidden="true"></div>
+    </section>
+
+    <!-- Conteúdo sobre o desenho -->
+    <section class="sobre" id="sobre">
+      <h2 class="titulo-secao">Sobre</h2>
+      <div class="sobre-grade">
+        <article class="sobre-item">
+          <h3>Os jogos</h3>
+          <p>
+            Criado por Satoshi Tajiri, Pokémon começou em 1996 com Red e Green para
+            Game Boy, trazendo os 151 Pokémon originais. A ideia: capturar, treinar
+            e trocar criaturas com os amigos.
+          </p>
+        </article>
+        <article class="sobre-item">
+          <h3>O desenho</h3>
+          <p>
+            O anime estreou no Japão em 1997 e chegou ao Brasil em 1999, na Record.
+            Ash, Misty, Brock e o Pikachu marcaram uma geração inteira nas manhãs
+            de TV aberta.
+          </p>
+        </article>
+        <article class="sobre-item">
+          <h3>A API</h3>
+          <p>
+            A PokeAPI é pública e gratuita, sem cadastro nem token. Reúne
+            <span id="total-especies">mais de mil</span> espécies, com tipos,
+            atributos, imagens e muito mais.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cards: o HTML só tem os containers vazios, quem preenche é o js/script.js -->
+    <section class="pokemon" id="pokemon">
+      <h2 class="titulo-secao">Pokémon</h2>
+
+      <form class="filtros" id="filtros">
+        <select id="geracao" name="geracao" aria-label="Escolher geração">
+          <option value="1">Geração I – Kanto (1996)</option>
+          <option value="2">Geração II – Johto (1999)</option>
+          <option value="3">Geração III – Hoenn (2002)</option>
+          <option value="4">Geração IV – Sinnoh (2006)</option>
+        </select>
+        <input type="search" id="busca" name="busca" placeholder="Nome ou número (ex.: pikachu, 25)" aria-label="Buscar por nome ou número">
+        <button type="submit" class="botao">Buscar</button>
+      </form>
+
+      <p class="mensagem" id="mensagem" role="status"></p>
+
+      <div class="cards" id="cards"></div>
+
+      <button type="button" class="botao botao-mais" id="carregar-mais" hidden>Carregar mais</button>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>
+      Dados da <a href="https://pokeapi.co/" target="_blank" rel="noopener">PokeAPI</a>.
+      Pokémon é marca registrada de Nintendo, Game Freak e Creatures.
+      Trabalho acadêmico de Web Development Front-End.
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
